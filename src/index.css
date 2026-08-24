@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #fffbfb 50%, #ffe4e6 100%);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --border-pink: rgba(244, 63, 94, 0.2);
+}
+
+body {
+  background: var(--bg-gradient);
+  color: #1f2937;
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Card Styling */
+.cute-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-pink);
+  box-shadow: 0 20px 40px -15px rgba(244, 63, 94, 0.12);
+}
+
+/* Page entrance transition */
+.page-transition {
+  animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PowerPoint Slide Wipe Animations */
+@keyframes wipeNext {
+  0% {
+    opacity: 0;
+    transform: translateX(80px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-wipe-next {
+  animation: wipeNext 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Floating Hearts & Emojis Background Animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(105vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+.floating-heart {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatUp 10s linear infinite;
+}
+
+/* Shake Effect */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+.animate-shake { animation: shake 0.4s ease-in-out; }
